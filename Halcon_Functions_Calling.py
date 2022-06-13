@@ -64,8 +64,6 @@ class Halcon_Functions():
         list_2 = []
         list_3 = []
         list_4 = []
-        list_5 = []
-        list_6 = []
         AcqHandle = ha.open_framegrabber('USB3Vision', 0, 0, 0, 0, 0, 0, 'progressive', -1, 'default', -1, 'false','default','199E32124240_TheImagingSourceEuropeGmbH_DMK33UX264', 0, -1)
         img = ha.grab_image(AcqHandle)
         img = ha.invert_image(img)
@@ -75,9 +73,6 @@ class Halcon_Functions():
         region = ha.connection(region)
         region = ha.select_shape(region, 'area', 'and', 3000, 99999)
         region = ha.select_shape(region, 'rectangularity', 'and', 0.9, 1)
-        corner_points = ha.inner_rectangle1(region)
-        list_5 = corner_points[1]
-        list_6 = corner_points[3]
         component_info = ha.area_center(region)
         angle = ha.orientation_region(region)
         display.set_color('red')
